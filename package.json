@@ -1,0 +1,29 @@
+{
+  "name": "override-console-log",
+  "version": "1.0.0",
+  "description": "Overriding console.log to customize the log with current time along with passed log arguments",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/Smi0001/override-console-log.git"
+  },
+  "keywords": [
+    "ES06",
+    "javascript",
+    "console",
+    "log",
+    "log",
+    "logging",
+    "terminal",
+    "server",
+    "side",
+    "custom",
+    "customize",
+    "override"
+  ],
+  "author": "Smi0001",
+  "license": "GPL-3.0"
+}
