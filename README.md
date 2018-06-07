@@ -18,7 +18,9 @@
                                                   |___/
                                                   
  ```
-================================ HOW TO USE ================================
+ 
+## HOW TO USE
+```
 console.log('Original logging');     // [2018-4-5 16:43:23] Original logging
 console.logI('info format');         // [2018-4-5 16:43:23] INFO info format
 console.logD('debug fromat');        // [2018-4-5 16:43:23] DEBUG debug fromat
