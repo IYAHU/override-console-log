@@ -66,6 +66,7 @@ console.log('Overriding console.log is enabled');
 /*
 FEATURES COMING SOON
 ====================
+-- Possible edge case error check
 -- Reset overriding console fn
 -- Shorthand name just log/logD/logE/logI
 -- Customize log-type tag (replace INFO/DEBUG/ERROR with your own keyword)
