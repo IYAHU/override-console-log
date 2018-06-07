@@ -71,4 +71,5 @@ FEATURES COMING SOON
 -- Shorthand name just log/logD/logE/logI
 -- Customize log-type tag (replace INFO/DEBUG/ERROR with your own keyword)
 -- Customize Date/Time format
+-- Update mocha test
 */
