@@ -1,6 +1,6 @@
 {
   "name": "override-console-log",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Overriding console.log to customize the log with current time along with passed log arguments",
   "main": "index.js",
   "scripts": {
