@@ -1,7 +1,6 @@
 var chai = require('chai');
 var assert = chai.assert;
 const fs = require('fs');
-// const rfs = require('rotating-file-stream');
 var { log, logI, logD, logE, logConfig } = require('./index');
 
 const logDirectory = './log/';
