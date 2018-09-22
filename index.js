@@ -2,10 +2,10 @@
 Author: Shammi Hans | Smi0001
 Dependency: JavaScript (ES06)
 Description: Overriding console.log to customize the log with current time along with passed log arguments
-
 */
 
 const origlog = console.log;
+
 const logConfig = {
     logDate: true,
     logDateFormat: 'toLocaleString', // Date format is actually the format-function-name in which user wants to convert the date
@@ -19,8 +19,10 @@ const logConfig = {
     debugPrefix: 'DEBUG',
     infoPrefix: 'INFO',
     errorPrefix: 'ERROR',
-    stopLogging: false
+    stopLogging: false, // stop this logging with format, only console.log() & log() can be used as usual logging
+    default: false
 };
+// const defaultOptions = Object.freeze(logConfig);
 
 const getCurrentDateFormat = function() {
     var dateStr = new Date().toLocaleString(); // default date format
@@ -65,13 +67,15 @@ const getCurrentDateFormat = function() {
 console.log = function (obj, ...argumentArray) {
     var dateString = '';
     var datePrefix = '';
-    if (logConfig && logConfig.enableAll && logConfig.enableLog && logConfig.logDate) {
-        dateString = getCurrentDateFormat();
-        var prefix = '';
-        if (typeof logConfig.logCustomPrefix === 'string' && logConfig.logCustomPrefix.length < 1000 ) {
-            prefix = logConfig.logCustomPrefix;
+    if (logConfig && !logConfig.stopLogging) {
+        if (logConfig && logConfig.enableAll && logConfig.enableLog && logConfig.logDate) {
+            dateString = getCurrentDateFormat();
+            var prefix = '';
+            if (typeof logConfig.logCustomPrefix === 'string' && logConfig.logCustomPrefix.length < 1000 ) {
+                prefix = logConfig.logCustomPrefix;
+            }
+            datePrefix = logConfig.logDateThenPrefix ? (dateString + prefix + ' ') : (prefix + ' ' + dateString);
         }
-        datePrefix = logConfig.logDateThenPrefix ? (dateString + prefix) : (prefix + dateString);
     }
     if (typeof obj === 'string') {
         argumentArray.unshift(datePrefix + obj);
@@ -90,45 +94,55 @@ const getDatePrefix = function(prefix) {
         if (logConfig.logDate) {
             dateString = getCurrentDateFormat();
         }
-        datePrefix = logConfig.logDateThenPrefix ? (dateString + prefix) : (prefix + dateString);
+        datePrefix = logConfig.logDateThenPrefix ? (dateString + prefix + ' ') : (prefix + ' ' + dateString);
     }
     return datePrefix + ' ';
 };
 
 console.logD = function (obj, ...argumentArray) {
-    var datePrefix = getDatePrefix(logConfig.debugPrefix);
-    if (typeof obj === 'string') {
-        argumentArray.unshift(datePrefix + obj);
-    } else {
-        // This handles console.log( object )
-        argumentArray.unshift(obj);
-        argumentArray.unshift(datePrefix);
+    if (logConfig && !logConfig.stopLogging) {
+        var datePrefix = (logConfig && logConfig.enableLogD) ?
+                     getDatePrefix(logConfig.debugPrefix) :
+                     '';
+        if (typeof obj === 'string') {
+            argumentArray.unshift(datePrefix + obj);
+        } else {
+            argumentArray.unshift(obj);
+            argumentArray.unshift(datePrefix);
+        }
+        origlog.apply(this, argumentArray);
     }
-    origlog.apply(this, argumentArray);
 };
 
 console.logI = function (obj, ...argumentArray) {
-    var datePrefix = getDatePrefix(logConfig.infoPrefix);
-    if (typeof obj === 'string') {
-        argumentArray.unshift(datePrefix + obj);
-    } else {
-        // This handles console.log( object )
-        argumentArray.unshift(obj);
-        argumentArray.unshift(datePrefix);
+    if (logConfig && !logConfig.stopLogging) {
+        var datePrefix = (logConfig && logConfig.enableLogI) ?
+                        getDatePrefix(logConfig.infoPrefix) :
+                        '';
+        if (typeof obj === 'string') {
+            argumentArray.unshift(datePrefix + obj);
+        } else {
+            argumentArray.unshift(obj);
+            argumentArray.unshift(datePrefix);
+        }
+        origlog.apply(this, argumentArray);
     }
-    origlog.apply(this, argumentArray);
 };
 
 console.logE = function (obj, ...argumentArray) {
-    var datePrefix = getDatePrefix(logConfig.errorPrefix);
-    if (typeof obj === 'string') {
-        argumentArray.unshift(datePrefix + obj);
-    } else {
-        // This handles console.log( object )
-        argumentArray.unshift(obj);
-        argumentArray.unshift(datePrefix);
+    if (logConfig && !logConfig.stopLogging) {
+        var datePrefix = (logConfig && logConfig.enableLogE) ?
+                        getDatePrefix(logConfig.errorPrefix) :
+                        '';
+        if (typeof obj === 'string') {
+            argumentArray.unshift(datePrefix + obj);
+        } else {
+            // This handles console.log( object )
+            argumentArray.unshift(obj);
+            argumentArray.unshift(datePrefix);
+        }
+        origlog.apply(this, argumentArray);
     }
-    origlog.apply(this, argumentArray);
 };
 
 module.exports.log = console.log;
