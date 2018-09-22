@@ -203,3 +203,9 @@ __________
 ### Give feedback and feel free to contribute on https://github.com/IYAHU/override-console-log
 
 __________
+## References
+> [Refering docs to publish / update the NPM package](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+> [Took help from MDN Docs](https://developer.mozilla.org/en-US/)
+> [Took help from Stackoverflow Forum](https://stackoverflow.com/)
+> [Test-cases written using Mocha Docs](https://mochajs.org/)
+__________
