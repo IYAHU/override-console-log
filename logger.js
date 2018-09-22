@@ -1,11 +1,11 @@
 /**
  * This file is to test Log functionalities manually
  * 
- * Execute command 'npm run dev'
+ * Execute command 'npm run dev' OR 'node logger.js'
  * 
  */
 
-const { log, logI, logD, logE, logConfig } = require('./index');
+const { log, logI, logD, logE, logConfig, resetLogger } = require('./index');
 
 // logConfig = {
 //     logDate: false,
@@ -97,4 +97,9 @@ logI('checking for stopLogging = true', ' for logI');
 logD('checking for stopLogging = true', ' for logD');
 logE('checking for stopLogging = true', ' for logE');
 
+resetLogger();
+log('resetLogger()', ' for log');
+logI('resetLogger()', ' for logI');
+logD('resetLogger()', ' for logD');
+logE('resetLogger()', ' for logE');
 

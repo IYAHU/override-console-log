@@ -6,23 +6,28 @@ Description: Overriding console.log to customize the log with current time along
 
 const origlog = console.log;
 
-const logConfig = {
-    logDate: true,
-    logDateFormat: 'toLocaleString', // Date format is actually the format-function-name in which user wants to convert the date
-    enableAll: true,
-    enableLog: true,
-    enableLogI: true,
-    enableLogD: true,
-    enableLogE: true,
-    logCustomPrefix: '', // accepts any string of length < 1000
-    logDateThenPrefix: true,
-    debugPrefix: 'DEBUG',
-    infoPrefix: 'INFO',
-    errorPrefix: 'ERROR',
-    stopLogging: false, // stop this logging with format, only console.log() & log() can be used as usual logging
-    default: false
+const defaultOptions = Object.freeze(
+    {
+        logDate: true,
+        logDateFormat: 'toLocaleString', // Date format is actually the format-function-name in which user wants to convert the date
+        enableAll: true,
+        enableLog: true,
+        enableLogI: true,
+        enableLogD: true,
+        enableLogE: true,
+        logCustomPrefix: '', // accepts any string of length < 1000
+        logDateThenPrefix: true,
+        debugPrefix: 'DEBUG',
+        infoPrefix: 'INFO',
+        errorPrefix: 'ERROR',
+        stopLogging: false // stop this logging with format, only console.log() & log() can be used as usual logging
+    }
+);
+let logConfig  = {};
+console.resetLogger = function() {
+    logConfig = JSON.parse(JSON.stringify(defaultOptions));
 };
-// const defaultOptions = Object.freeze(logConfig);
+console.resetLogger();
 
 const getCurrentDateFormat = function() {
     var dateStr = new Date().toLocaleString(); // default date format
@@ -150,4 +155,6 @@ module.exports.logI = console.logI;
 module.exports.logD = console.logD;
 module.exports.logE = console.logE;
 module.exports.logConfig = logConfig;
+module.exports.resetLogger = console.resetLogger;
+
 console.log('*override-console-log* is loaded');
