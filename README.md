@@ -204,11 +204,11 @@ __________
 
 __________
 ## References
-> [Refering docs to publish / update the NPM package](https://docs.npmjs.com/getting-started/publishing-npm-packages)
->
-> [Took help from MDN Docs](https://developer.mozilla.org/en-US/)
->
-> [Took help from Stackoverflow Forum](https://stackoverflow.com/)
->
-> [Test-cases written using Mocha Docs](https://mochajs.org/)
+[Refering docs to publish / update the NPM package](https://docs.npmjs.com/getting-started/publishing-npm-packages)
+
+[Took help from MDN Docs](https://developer.mozilla.org/en-US/)
+
+[Took help from Stackoverflow Forum](https://stackoverflow.com/)
+
+[Test-cases written using Mocha Docs](https://mochajs.org/)
 __________
