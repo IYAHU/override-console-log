@@ -3,6 +3,7 @@
 - `Dependency: JavaScript (ES06)`
 - `Description: Overriding console.log to customize the log with current time along with passed log arguments`
 - `License: GPL-3.0`
+__________
  ```sh
     ___                      _     _       
    / _ \__   _____ _ __ _ __(_) __| | ___  
@@ -18,7 +19,7 @@
                                                   |___/
 
  ```
-
+__________
 ## NEW FEATURES
 - Shorthand names available, just use log / logD / logE / logI
 - Stop all Fns from executing, there is no need of finding & commenting / deleting each Fn calls
@@ -32,10 +33,9 @@
 - set the order of appearance for date-time and prefix-tag
 ``` configure 'logDateThenPrefix' ```
 - Customize Date/Time format
-- New 13 configurable options
+- New 14 configurable options
 
-
-## HOW TO IMPORT
+#### HOW TO IMPORT
 ```javascript
 var { log, logI, logD, logE, logConfig } = require(<url_path_of_overide-console-log-package>);
 ```
@@ -45,7 +45,7 @@ import { log, logI, logD, logE, logConfig } from <url_path_of_overide-console-lo
 ```
 
 
-## HOW TO USE
+### HOW TO USE
 ```javascript
 console.log('Original logging');     // [2018-4-5 16:43:23] Original logging
 console.logI('info format');         // [2018-4-5 16:43:23] INFO info format
@@ -60,7 +60,7 @@ logD('debug fromat');        // [2018-4-5 16:43:23] DEBUG debug fromat
 logE('Error format');        // [2018-4-5 16:43:23] ERROR Error format
 ```
 
-## Configurable options
+### Configurable options
 1. ```javascript 
     logDate: true
     // set 'true' or 'false' to enable or disable logging of date-time
@@ -165,9 +165,23 @@ logE('Error format');        // [2018-4-5 16:43:23] ERROR Error format
     //output:
     //      <no_output>
     ```
+14. ```javascript
+    resetLogger(); // reset logger to default options
+    ```
+    OR
+    ```javascript
+    console.resetLogger(); // reset logger to default options
+    ```
 
+### Live Sample
+> See **logger.js** for functionalities examples.
+> Execute ```npm run dev``` or ```node logger.js```
 
-## Test Command
+__________
+## Test Cases
+> Unit test-cases are written using _Mocha_. Few test-cases are pending.
+
+### Test Command
 ```
 npm test
 ```
@@ -181,8 +195,11 @@ npm test
 > 
 > _Final attempt_: I figured out that there should be one test-case for each of the log functionalities, and each should have separate file created. So in this way, when test-cases are executed for assertions then the files with logs to be read would be available before hand, and no setTimeout would be needed to delay any execution.
 
+__________
 ## FEATURES COMING SOON 
 - Possible edge case error check
 - Update mocha test
 
 ### Give feedback and feel free to contribute on https://github.com/IYAHU/override-console-log
+
+__________
