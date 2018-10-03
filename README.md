@@ -1,8 +1,10 @@
  # Override Console Log
-- `Author: Shammi Hans | Smi0001` `https://github.com/orgs/IYAHU/people/Smi0001`
-- `Dependency: JavaScript (ES06)`
-- `Description: Overriding console.log to customize the log with current time along with passed log arguments`
-- `License: GPL-3.0`
+- Author: `Shammi Hans` | [Smi0001](https://github.com/orgs/IYAHU/people/Smi0001)
+- Dependency: `JavaScript (ES06)`
+- Description: `Overriding console.log to customize the log with current time along with passed log arguments`
+- License: `GPL-3.0`
+- Published as [npmjs package](https://www.npmjs.com/package/override-console-log)
+- Install command: `npm i override-console-log`
 __________
  ```sh
     ___                      _     _       
@@ -200,7 +202,7 @@ __________
 - Possible edge case error check
 - Update mocha test
 
-### Give feedback and feel free to contribute on https://github.com/IYAHU/override-console-log
+### Give feedback and feel free to contribute on [override-console-log](https://github.com/IYAHU/override-console-log)
 
 __________
 ## References
